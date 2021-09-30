@@ -17,12 +17,14 @@ namespace challengeProject.Controllers
 
         private readonly ILogger<EmployeeController> _logger;
         private IEmployeeService _employeeService;
+        private IMembershipService _membershipService;
 
 
-        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService)
+        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService, IMembershipService membershipService)
         {
             _logger = logger;
             _employeeService = employeeService;
+            _membershipService = membershipService;
         }
 
         //retornar todos os empregados
@@ -54,6 +56,27 @@ namespace challengeProject.Controllers
                 return BadRequest();
             }
             return Ok(_employeeService.Create(employee));
+        }
+        [HttpPost("addtoproject")]
+        public IActionResult AddToProject([FromBody] Membership membership)
+        {
+
+            if (membership == null)
+            {
+                return BadRequest();
+            }
+            return Ok(_membershipService.Create(membership));
+        }
+        [HttpDelete("removefromproject")]
+        public IActionResult RemoveFromProject([FromBody] Membership membership)
+        {
+
+            if (membership == null)
+            {
+                return BadRequest();
+            }
+            _membershipService.Delete(membership);
+            return NoContent();
         }
         //atualizar empregado na tabela
         [HttpPut]

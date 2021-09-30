@@ -7,13 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace challengeProject.Model
-{   
+{
 
     [Table("membros")]
-    [Keyless]
+
     public class Membership
     {
         [Column("id_empregado")]
+        [Key]
         public int id_empregado { get; set; }
 
         [Column("id_projeto")]

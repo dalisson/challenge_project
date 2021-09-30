@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 namespace challengeProject.Model
 {
     [Table("empregados")]
+    
     public class Employee
     {
         //id do empregado
-        [Column("empregado_id")]
+        [Column("id_empregado")]
+        [Key]  
         public int id_empregado { get; set; }
 
         //primero nome do empregado

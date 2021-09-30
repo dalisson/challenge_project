@@ -33,15 +33,15 @@ namespace challengeProject.Controllers
         }
 
         //retorna empregado por id
-        [HttpGet("{empregadoId}")]
-        public IActionResult Get(int empregadoId)
+        [HttpGet("{employeeId}")]
+        public IActionResult Get([FromQuery] int employeeId)
         {
-            var empregado = _employeeService.FindByID(empregadoId);
-            if (empregado == null)
+            var employee = _employeeService.FindByID(employeeId);
+            if (employee == null)
             {
                 return NotFound();
             }
-            return Ok(empregado);
+            return Ok(employee);
         }
 
         //persistir novo empregado na tabela

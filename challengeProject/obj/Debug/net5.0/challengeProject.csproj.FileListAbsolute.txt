@@ -27,3 +27,10 @@ C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\obj\
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\obj\Debug\net5.0\ref\challengeProject.dll
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\obj\Debug\net5.0\challengeProject.pdb
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\obj\Debug\net5.0\challengeProject.genruntimeconfig.cache
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using challengeProject.Model.Context;
 using challengeProject.Services;
 using challengeProject.Services.Implementations;
+using Microsoft.EntityFrameworkCore;
 
 namespace challengeProject
 {
@@ -30,6 +32,12 @@ namespace challengeProject
         {
 
             services.AddControllers();
+
+            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection,
+                                                                            new MySqlServerVersion(new Version(8, 0, 11))
+                                                                            )
+                                                );
             services.AddScoped<IEmployeeService, EmployeeServiceImplementation>();
             //services.AddSwaggerGen(c =>
             //{

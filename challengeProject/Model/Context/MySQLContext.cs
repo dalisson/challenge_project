@@ -15,10 +15,7 @@ namespace challengeProject.Model.Context
 
         }
 
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
-        {
-
-        }
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
 
         public DbSet<Employee> Employees { get; set; }
     }

@@ -19,5 +19,7 @@ namespace challengeProject.Model.Context
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Membership> Memberships { get; set; }
     }
 }

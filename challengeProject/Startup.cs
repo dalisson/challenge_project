@@ -39,6 +39,8 @@ namespace challengeProject
                                                                             )
                                                 );
             services.AddScoped<IEmployeeService, EmployeeServiceImplementation>();
+            services.AddScoped<IProjectService, ProjectServiceImplementation>();
+            services.AddScoped<IMembershipService, MembershipServiceImplementation>();
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "challengeProject", Version = "v1" });

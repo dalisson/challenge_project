@@ -34,7 +34,7 @@ namespace challengeProject.Controllers
 
         //retorna empregado por id
         [HttpGet("{employeeId}")]
-        public IActionResult Get([FromQuery] int employeeId)
+        public IActionResult Get(int employeeId)
         {
             var employee = _employeeService.FindByID(employeeId);
             if (employee == null)
@@ -46,31 +46,31 @@ namespace challengeProject.Controllers
 
         //persistir novo empregado na tabela
         [HttpPost]
-        public IActionResult Post([FromBody] Employee empregado)
+        public IActionResult Post([FromBody] Employee employee)
         {
 
-            if (empregado == null)
+            if (employee == null)
             {
                 return BadRequest();
             }
-            return Ok(_employeeService.Create(empregado));
+            return Ok(_employeeService.Create(employee));
         }
         //atualizar empregado na tabela
         [HttpPut]
-        public IActionResult Put([FromBody] Employee empregado)
+        public IActionResult Put([FromBody] Employee employee)
         {
 
-            if (empregado == null)
+            if (employee == null)
             {
                 return BadRequest();
             }
-            return Ok(_employeeService.Update(empregado));
+            return Ok(_employeeService.Update(employee));
         }
-        [HttpDelete("{empregadoId}")]
-        public IActionResult Delete(int empregadoId)
+        [HttpDelete("{employeeId}")]
+        public IActionResult Delete(int employeeId)
         {
 
-            _employeeService.Delete(empregadoId);
+            _employeeService.Delete(employeeId);
             return NoContent();
         }
     }

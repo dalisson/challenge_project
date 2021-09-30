@@ -52,8 +52,7 @@ namespace challengeProject.Services.Implementations
             if(!employeeOnDb(employee.id_empregado)) return new Employee();
 
             var tempPerson = _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employee.id_empregado));
-            
-            
+
             try
             {
                 _context.Entry(tempPerson).CurrentValues.SetValues(employee);
@@ -71,7 +70,8 @@ namespace challengeProject.Services.Implementations
 
         public void Delete(int employeeId)
         {
-            var tempPerson = _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employeeId));
+            var tempPerson =  _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employeeId));
+
             try
             {
                 _context.Employees.Remove(tempPerson);
@@ -90,6 +90,8 @@ namespace challengeProject.Services.Implementations
         {
             return _context.Employees.Any(p => p.id_empregado.Equals(employeeId));
         }
+
+        
 
     }
 }

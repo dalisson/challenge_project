@@ -20,6 +20,7 @@ using challengeProject.Repository.Implementations;
 using Serilog;
 using Serilog.Core;
 using challengeProject.Repository.Generic;
+using Microsoft.Net.Http.Headers;
 
 namespace challengeProject
 {
@@ -52,7 +53,19 @@ namespace challengeProject
             {
                 MigrateDatabase(connection);
             }
-            //vesionamento de apis
+
+            //Aplicacao trabalha com xml alem de json
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+
+            })
+            .AddXmlSerializerFormatters();
+            //versionamento de apis
             services.AddApiVersioning();
 
             //injecao de dependencias

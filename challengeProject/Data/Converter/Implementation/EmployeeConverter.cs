@@ -13,7 +13,7 @@ namespace challengeProject.Data.Converter.Implementation
             if (origin == null) return null;
             return new Employee
             {
-                Id = origin.id_empregado,
+                Id = origin.Id,
                 primeiro_nome = origin.primeiro_nome,
                 ultimo_nome = origin.ultimo_nome,
                 telefone = origin.telefone,
@@ -32,7 +32,7 @@ namespace challengeProject.Data.Converter.Implementation
             if (origin == null) return null;
             return new EmployeeVO
             {
-                id_empregado = origin.Id,
+                Id = origin.Id,
                 primeiro_nome = origin.primeiro_nome,
                 ultimo_nome = origin.ultimo_nome,
                 telefone = origin.telefone,

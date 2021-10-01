@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using challengeProject.Model.Base;
+using System.Text.Json.Serialization;
 
 namespace challengeProject.Data.VO
 {
     
     public class EmployeeVO
     {
-        
-        public int id_empregado { get; set; }
+        [JsonPropertyName("id_empregado")]
+        public int Id{ get; set; }
 
         public string primeiro_nome { get; set; }
 

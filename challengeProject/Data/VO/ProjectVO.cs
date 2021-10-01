@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using challengeProject.Model.Base;
+using System.Text.Json.Serialization;
 
 namespace challengeProject.Data.VO
 {
     
     public class ProjectVO
     {
-        public int id_projeto { get; set; }
+        [JsonPropertyName("id_projeto")]
+        public int Id { get; set; }
         
         public string nome { get; set; }
 

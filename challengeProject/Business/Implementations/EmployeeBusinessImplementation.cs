@@ -1,46 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using challengeProject.Model;
-using challengeProject.Model.Context;
-using System.Reflection;
 using challengeProject.Repository;
+using challengeProject.Data.VO;
+using challengeProject.Data.Converter.Implementation;
 
 namespace challengeProject.Business.Implementations
 {
     public class EmployeeBusinessImplementation : IEmployeeBusiness
     {
         private readonly IRepository<Employee> _repository;
+
+        private readonly EmployeeConverter _converter;
         public EmployeeBusinessImplementation(IRepository<Employee> repository)
 
         {
             _repository = repository;
+            _converter = new EmployeeConverter();
         }
-        public Employee Create(Employee employee)
+        public EmployeeVO Create(EmployeeVO employee)
         {
            
-            return _repository.Create(employee);
+            return _converter.Parse(_repository.Create(_converter.Parse(employee)));
         }
 
-        public Employee FindByID(int employeeId)
+        public EmployeeVO FindByID(int employeeId)
         {
-            return _repository.FindByID(employeeId);
+            return _converter.Parse(_repository.FindByID(employeeId));
         }
 
         
 
-        public List<Employee> FindAll()
+        public List<EmployeeVO> FindAll()
         {
 
 
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Employee Update(Employee employee)
+        public EmployeeVO Update(EmployeeVO employee)
         {
             
-            return _repository.Update(employee);
+            return _converter.Parse(_repository.Update(_converter.Parse(employee)));
 
 
         }

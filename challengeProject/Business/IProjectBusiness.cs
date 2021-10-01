@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using challengeProject.Data.VO;
 using challengeProject.Model;
 
 namespace challengeProject.Business
 {
     public interface IProjectBusiness
     {
-        Project Create(Project project);
+        ProjectVO Create(ProjectVO project);
 
-        Project FindByID(int projectId);
+        ProjectVO FindByID(int projectId);
 
-        List<Project> FindAll();
+        List<ProjectVO> FindAll();
 
-        Project Update(Project project);
+        ProjectVO Update(ProjectVO project);
 
         void Delete(int projectId);
     }

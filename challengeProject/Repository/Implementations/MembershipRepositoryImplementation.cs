@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using challengeProject.Model;
 using challengeProject.Model.Context;
 
-namespace challengeProject.Services.Implementations
+namespace challengeProject.Repository.Implementations
 {
-    public class MembershipServiceImplementation : IMembershipService
+    public class MembershipRepositoryImplementation : IMembershipRepository
     {
         private MySQLContext _context;
-        public MembershipServiceImplementation(MySQLContext context)
+        public MembershipRepositoryImplementation(MySQLContext context)
 
         {
             _context = context;

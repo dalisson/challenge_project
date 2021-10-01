@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using challengeProject.Model;
 
 
-namespace challengeProject.Services
+namespace challengeProject.Repository
 {
-    public interface IMembershipService
+    public interface IMembershipRepository
+
     {
         Membership Create(Membership membership);
         void Delete(Membership membership);

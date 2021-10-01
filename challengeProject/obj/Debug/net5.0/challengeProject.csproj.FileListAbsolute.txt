@@ -34,3 +34,4 @@ C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dalis\Desktop\challenge\rest_api\challengeProject\challengeProject\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model;
 
-namespace challengeProject.Services
+namespace challengeProject.Repository
 {
-    public interface IProjectService
+    public interface IProjectRepository
     {
         Project Create(Project project);
 
@@ -19,5 +19,7 @@ namespace challengeProject.Services
         Project Update(Project project);
 
         void Delete(int projectId);
+
+        bool projectOnDb(int projectId);
     }
 }

@@ -12,9 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model.Context;
-using challengeProject.Services;
-using challengeProject.Services.Implementations;
+using challengeProject.Business;
+using challengeProject.Business.Implementations;
 using Microsoft.EntityFrameworkCore;
+using challengeProject.Repository;
+using challengeProject.Repository.Implementations;
 
 namespace challengeProject
 {
@@ -42,9 +44,16 @@ namespace challengeProject
             services.AddApiVersioning();
 
             //injecao de dependencias
-            services.AddScoped<IEmployeeService, EmployeeServiceImplementation>();
-            services.AddScoped<IProjectService, ProjectServiceImplementation>();
-            services.AddScoped<IMembershipService, MembershipServiceImplementation>();
+            //camada de negocios
+            services.AddScoped<IEmployeeBusiness, EmployeeBusinessImplementation>();
+            services.AddScoped<IProjectBusiness, ProjectBusinessImplementation>();
+            services.AddScoped<IMembershipBusiness, MembershipBusinessImplementation>();
+            
+            //camada do banco
+            services.AddScoped<IEmployeeRepository, EmployeeRepositoryImplementation>();
+            services.AddScoped<IProjectRepository, ProjectRepositoryImplementation>();
+            services.AddScoped<IMembershipRepository, MembershipRepositoryImplementation>();
+            
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "challengeProject", Version = "v1" });

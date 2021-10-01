@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model;
 
-namespace challengeProject.Services
+namespace challengeProject.Business
 {
-    public interface IEmployeeService
+    public interface IEmployeeBusiness
     {
         Employee Create(Employee employee);
 

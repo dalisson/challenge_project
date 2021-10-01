@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model;
-using challengeProject.Services;
+using challengeProject.Business;
 
 namespace challengeProject.Controllers
 {
@@ -17,29 +17,29 @@ namespace challengeProject.Controllers
         
 
         private readonly ILogger<EmployeeController> _logger;
-        private IEmployeeService _employeeService;
-        private IMembershipService _membershipService;
+        private IEmployeeBusiness _employeeBusiness;
+        private IMembershipBusiness _membershipBusiness;
 
 
-        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService, IMembershipService membershipService)
+        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeBusiness employeeService, IMembershipBusiness membershipService)
         {
             _logger = logger;
-            _employeeService = employeeService;
-            _membershipService = membershipService;
+            _employeeBusiness = employeeService;
+            _membershipBusiness = membershipService;
         }
 
         //retornar todos os empregados
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_employeeService.FindAll());
+            return Ok(_employeeBusiness.FindAll());
         }
 
         //retorna empregado por id
         [HttpGet("{employeeId}")]
         public IActionResult Get(int employeeId)
         {
-            var employee = _employeeService.FindByID(employeeId);
+            var employee = _employeeBusiness.FindByID(employeeId);
             if (employee == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_employeeService.Create(employee));
+            return Ok(_employeeBusiness.Create(employee));
         }
         [HttpPost("addtoproject")]
         public IActionResult AddToProject([FromBody] Membership membership)
@@ -66,7 +66,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_membershipService.Create(membership));
+            return Ok(_membershipBusiness.Create(membership));
         }
         [HttpDelete("removefromproject")]
         public IActionResult RemoveFromProject([FromBody] Membership membership)
@@ -76,7 +76,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            _membershipService.Delete(membership);
+            _membershipBusiness.Delete(membership);
             return NoContent();
         }
         //atualizar empregado na tabela
@@ -88,13 +88,13 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_employeeService.Update(employee));
+            return Ok(_employeeBusiness.Update(employee));
         }
         [HttpDelete("{employeeId}")]
         public IActionResult Delete(int employeeId)
         {
 
-            _employeeService.Delete(employeeId);
+            _employeeBusiness.Delete(employeeId);
             return NoContent();
         }
     }

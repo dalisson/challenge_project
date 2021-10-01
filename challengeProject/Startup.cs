@@ -38,6 +38,10 @@ namespace challengeProject
                                                                             new MySqlServerVersion(new Version(8, 0, 11))
                                                                             )
                                                 );
+            //vesionamento de apis
+            services.AddApiVersioning();
+
+            //injecao de dependencias
             services.AddScoped<IEmployeeService, EmployeeServiceImplementation>();
             services.AddScoped<IProjectService, ProjectServiceImplementation>();
             services.AddScoped<IMembershipService, MembershipServiceImplementation>();

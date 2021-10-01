@@ -1,4 +1,4 @@
-CREATE TABLE `membros` (
+CREATE TABLE IF NOT EXISTS `membros` (
   `id_empregado` int NOT NULL,
   `id_projeto` int NOT NULL,
   PRIMARY KEY (`id_empregado`,`id_projeto`),

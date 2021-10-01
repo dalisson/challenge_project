@@ -1,4 +1,4 @@
-CREATE TABLE `projetos` (
+CREATE TABLE IF NOT EXISTS `projetos` (
   `id_projeto` int NOT NULL,
   `nome` varchar(200) DEFAULT NULL,
   `data_criacao` datetime DEFAULT NULL,

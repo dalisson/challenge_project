@@ -1,4 +1,4 @@
-CREATE TABLE `empregados` (
+CREATE TABLE IF NOT EXISTS `empregados` (
   `id_empregado` int NOT NULL,
   `primeiro_nome` varchar(200) DEFAULT NULL,
   `ultimo_nome` varchar(200) DEFAULT NULL,

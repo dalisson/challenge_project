@@ -13,7 +13,7 @@ namespace challengeProject.Data.Converter.Implementation
             if (origin == null) return null;
             return new Project
             {
-                Id = origin.Id,
+                Id = origin.id_projeto,
                 nome = origin.nome,
                 data_criacao = origin.data_criacao,
                 data_termino = origin.data_termino,
@@ -32,7 +32,7 @@ namespace challengeProject.Data.Converter.Implementation
             if (origin == null) return null;
             return new ProjectVO
             {
-                Id = origin.Id,
+                id_projeto = origin.Id,
                 nome = origin.nome,
                 data_criacao = origin.data_criacao,
                 data_termino = origin.data_termino,

@@ -13,7 +13,7 @@ namespace challengeProject.Data.VO
     public class EmployeeVO
     {
         
-        public int Id { get; set; }
+        public int id_empregado { get; set; }
 
         public string primeiro_nome { get; set; }
 

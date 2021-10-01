@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model;
 using challengeProject.Business;
+using challengeProject.Data.VO;
 
 namespace challengeProject.Controllers
 {
@@ -49,7 +50,7 @@ namespace challengeProject.Controllers
 
         //persistir novo empregado na tabela
         [HttpPost]
-        public IActionResult Post([FromBody] Employee employee)
+        public IActionResult Post([FromBody] EmployeeVO employee)
         {
 
             if (employee == null)
@@ -81,7 +82,7 @@ namespace challengeProject.Controllers
         }
         //atualizar empregado na tabela
         [HttpPut]
-        public IActionResult Put([FromBody] Employee employee)
+        public IActionResult Put([FromBody] EmployeeVO employee)
         {
 
             if (employee == null)

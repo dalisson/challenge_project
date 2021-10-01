@@ -11,7 +11,7 @@ namespace challengeProject.Data.VO
     
     public class ProjectVO
     {
-        public int Id { get; set; }
+        public int id_projeto { get; set; }
         
         public string nome { get; set; }
 

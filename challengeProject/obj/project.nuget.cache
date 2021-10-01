@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "WX1qARVFtzISbj8NV5Ixg84yu8+MCZ5HiiQ8Bzqs8JTaMD1gxU5kTKmZsBDSq3tCuIDN84vKHwXyXzex44Qxtg==",
+  "dgSpecHash": "akjAjIdE/LlS9SVsfJU0jCW1TYBRquow5HDqL2hylDcQ8gxOK07iwaCL1cXKp5NUGzITHNHyjknhtFpaxiThzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dalis\\Desktop\\challenge\\rest_api\\challengeProject\\challengeProject\\challengeProject.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dalis\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\dalis\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.7\\microsoft.entityframeworkcore.5.0.7.nupkg.sha512",
     "C:\\Users\\dalis\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.7\\microsoft.entityframeworkcore.abstractions.5.0.7.nupkg.sha512",
     "C:\\Users\\dalis\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.7\\microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",

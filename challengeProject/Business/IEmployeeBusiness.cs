@@ -12,7 +12,6 @@ namespace challengeProject.Business
 
         Employee FindByID(int employeeId);
 
-        List<Project> FindProjectsByEmployee(int employeeId);
 
         List<Employee> FindAll();
 

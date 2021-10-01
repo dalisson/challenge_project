@@ -10,8 +10,8 @@ namespace challengeProject.Business.Implementations
 {
     public class ProjectBusinessImplementation : IProjectBusiness
     {
-        private readonly IProjectRepository _repository;
-        public ProjectBusinessImplementation(IProjectRepository repository)
+        private readonly IRepository<Project> _repository;
+        public ProjectBusinessImplementation(IRepository<Project> repository)
 
         {
             _repository = repository;
@@ -25,11 +25,6 @@ namespace challengeProject.Business.Implementations
         public Project FindByID(int projectId)
         {
             return _repository.FindByID(projectId);
-        }
-
-        public List<Employee> FindEmployeesByProject(int projetoId)
-        {
-            throw new NotImplementedException();
         }
 
         public List<Project> FindAll()

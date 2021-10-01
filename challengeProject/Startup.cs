@@ -63,7 +63,6 @@ namespace challengeProject
             
             //camada do banco
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IProjectRepository, ProjectRepositoryImplementation>();
             services.AddScoped<IMembershipRepository, MembershipRepositoryImplementation>();
             
             //services.AddSwaggerGen(c =>

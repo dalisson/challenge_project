@@ -12,8 +12,6 @@ namespace challengeProject.Business
 
         Project FindByID(int projectId);
 
-        List<Employee> FindEmployeesByProject(int projetoId);
-
         List<Project> FindAll();
 
         Project Update(Project project);

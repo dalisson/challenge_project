@@ -28,10 +28,7 @@ namespace challengeProject.Business.Implementations
             return _repository.FindByID(employeeId);
         }
 
-        public List<Project> FindProjectsByEmployee(int employeeId)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public List<Employee> FindAll()
         {

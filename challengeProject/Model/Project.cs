@@ -4,15 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using challengeProject.Model.Base;
 
 namespace challengeProject.Model
 {
     [Table("projetos")]
-    public class Project
+    public class Project : BaseEntity
     {
         [Key]
         [Column("id_projeto")]
-        public int Id { get; set; }
+        public new int Id { get; set; }
         [Column("nome")]
         public string nome { get; set; }
 

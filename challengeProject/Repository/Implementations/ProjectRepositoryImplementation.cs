@@ -31,7 +31,7 @@ namespace challengeProject.Repository.Implementations
 
         public Project FindByID(int projectId)
         {
-            return _context.Projects.SingleOrDefault(p => p.id_projeto.Equals(projectId));
+            return _context.Projects.SingleOrDefault(p => p.Id.Equals(projectId));
         }
 
         public List<Employee> FindEmployeesByProject(int projetoId)
@@ -46,9 +46,9 @@ namespace challengeProject.Repository.Implementations
 
         public Project Update(Project project)
         {
-            if (!projectOnDb(project.id_projeto)) return null;
+            if (!projectOnDb(project.Id)) return null;
 
-            var tempProject = _context.Projects.SingleOrDefault(p => p.id_projeto.Equals(project.id_projeto));
+            var tempProject = _context.Projects.SingleOrDefault(p => p.Id.Equals(project.Id));
 
             try
             {
@@ -64,7 +64,7 @@ namespace challengeProject.Repository.Implementations
 
         public void Delete(int projectId)
         {
-            var tempProject = _context.Projects.SingleOrDefault(p => p.id_projeto.Equals(projectId));
+            var tempProject = _context.Projects.SingleOrDefault(p => p.Id.Equals(projectId));
 
             try
             {
@@ -80,7 +80,7 @@ namespace challengeProject.Repository.Implementations
 
         public bool projectOnDb(int projectId)
         {
-            return _context.Projects.Any(p => p.id_projeto.Equals(projectId));
+            return _context.Projects.Any(p => p.Id.Equals(projectId));
         }
 
     }

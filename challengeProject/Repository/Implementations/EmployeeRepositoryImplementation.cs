@@ -32,7 +32,7 @@ namespace challengeProject.Repository.Implementations
 
         public Employee FindByID(int employeeId)
         {
-            return _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employeeId));
+            return _context.Employees.SingleOrDefault(p => p.Id.Equals(employeeId));
         }
 
         public List<Project> FindProjectsByEmployee(int employeeId)
@@ -49,9 +49,9 @@ namespace challengeProject.Repository.Implementations
 
         public Employee Update(Employee employee)
         {
-            if(!employeeOnDb(employee.id_empregado)) return null;
+            if(!employeeOnDb(employee.Id)) return null;
 
-            var tempPerson = _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employee.id_empregado));
+            var tempPerson = _context.Employees.SingleOrDefault(p => p.Id.Equals(employee.Id));
 
             try
             {
@@ -70,7 +70,7 @@ namespace challengeProject.Repository.Implementations
 
         public void Delete(int employeeId)
         {
-            var tempPerson =  _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employeeId));
+            var tempPerson =  _context.Employees.SingleOrDefault(p => p.Id.Equals(employeeId));
 
             try
             {
@@ -88,7 +88,7 @@ namespace challengeProject.Repository.Implementations
         //determines if employee is on database
         public bool employeeOnDb(int employeeId)
         {
-            return _context.Employees.Any(p => p.id_empregado.Equals(employeeId));
+            return _context.Employees.Any(p => p.Id.Equals(employeeId));
         }
 
         

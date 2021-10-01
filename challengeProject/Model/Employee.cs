@@ -14,7 +14,7 @@ namespace challengeProject.Model
         //id do empregado
         [Column("id_empregado")]
         [Key]  
-        public int id_empregado { get; set; }
+        public int Id { get; set; }
 
         //primero nome do empregado
         [Column("primeiro_nome")]

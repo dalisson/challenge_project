@@ -19,6 +19,7 @@ using challengeProject.Repository;
 using challengeProject.Repository.Implementations;
 using Serilog;
 using Serilog.Core;
+using challengeProject.Repository.Generic;
 
 namespace challengeProject
 {
@@ -61,7 +62,7 @@ namespace challengeProject
             services.AddScoped<IMembershipBusiness, MembershipBusinessImplementation>();
             
             //camada do banco
-            services.AddScoped<IEmployeeRepository, EmployeeRepositoryImplementation>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IProjectRepository, ProjectRepositoryImplementation>();
             services.AddScoped<IMembershipRepository, MembershipRepositoryImplementation>();
             

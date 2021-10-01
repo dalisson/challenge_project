@@ -19,6 +19,6 @@ namespace challengeProject.Repository
 
         void Delete(int id);
 
-        bool recordOnDb(int Id)
+        bool recordOnDb(int Id);
     }
 }

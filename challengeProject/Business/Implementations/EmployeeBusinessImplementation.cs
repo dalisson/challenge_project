@@ -11,8 +11,8 @@ namespace challengeProject.Business.Implementations
 {
     public class EmployeeBusinessImplementation : IEmployeeBusiness
     {
-        private readonly IEmployeeRepository _repository;
-        public EmployeeBusinessImplementation(IEmployeeRepository repository)
+        private readonly IRepository<Employee> _repository;
+        public EmployeeBusinessImplementation(IRepository<Employee> repository)
 
         {
             _repository = repository;

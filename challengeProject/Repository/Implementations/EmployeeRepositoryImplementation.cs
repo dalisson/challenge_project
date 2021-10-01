@@ -49,7 +49,7 @@ namespace challengeProject.Repository.Implementations
 
         public Employee Update(Employee employee)
         {
-            if(!employeeOnDb(employee.id_empregado)) return new Employee();
+            if(!employeeOnDb(employee.id_empregado)) return null;
 
             var tempPerson = _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employee.id_empregado));
 

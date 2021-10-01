@@ -46,7 +46,7 @@ namespace challengeProject.Repository.Implementations
 
         public Project Update(Project project)
         {
-            if (!projectOnDb(project.id_projeto)) return new Project();
+            if (!projectOnDb(project.id_projeto)) return null;
 
             var tempProject = _context.Projects.SingleOrDefault(p => p.id_projeto.Equals(project.id_projeto));
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using challengeProject.Model;
-using challengeProject.Services;
+using challengeProject.Business;
 
 namespace challengeProject.Controllers
 {
@@ -17,27 +17,27 @@ namespace challengeProject.Controllers
         
 
         private readonly ILogger<ProjectController> _logger;
-        private IProjectService _projectService;
+        private IProjectBusiness _projectBusiness;
 
 
-        public ProjectController(ILogger<ProjectController> logger, IProjectService projectService)
+        public ProjectController(ILogger<ProjectController> logger, IProjectBusiness projectService)
         {
             _logger = logger;
-            _projectService = projectService;
+            _projectBusiness = projectService;
         }
 
         //retornar todos os empregados
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_projectService.FindAll());
+            return Ok(_projectBusiness.FindAll());
         }
 
         //retorna empregado por id
         [HttpGet("{projectId}")]
         public IActionResult Get(int projectId)
         {
-            var project = _projectService.FindByID(projectId);
+            var project = _projectBusiness.FindByID(projectId);
             if (project == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_projectService.Create(project));
+            return Ok(_projectBusiness.Create(project));
         }
         //atualizar empregado na tabela
         [HttpPut]
@@ -65,13 +65,13 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_projectService.Update(project));
+            return Ok(_projectBusiness.Update(project));
         }
         [HttpDelete("{projectId}")]
         public IActionResult Delete(int projectId)
         {
 
-            _projectService.Delete(projectId);
+            _projectBusiness.Delete(projectId);
             return NoContent();
         }
     }

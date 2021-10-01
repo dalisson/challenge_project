@@ -1,0 +1,1 @@
+INSERT INTO `membros` VALUES (42,48),(43,49);

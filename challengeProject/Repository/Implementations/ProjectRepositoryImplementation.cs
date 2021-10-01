@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using challengeProject.Model;
 using challengeProject.Model.Context;
 
-namespace challengeProject.Services.Implementations
+namespace challengeProject.Repository.Implementations
 {
-    public class ProjectServiceImplementation : IProjectService
+    public class ProjectRepositoryImplementation : IProjectRepository
     {
         private MySQLContext _context;
-        public ProjectServiceImplementation(MySQLContext context)
+        public ProjectRepositoryImplementation(MySQLContext context)
 
         {
             _context = context;
@@ -46,7 +46,7 @@ namespace challengeProject.Services.Implementations
 
         public Project Update(Project project)
         {
-            if (!projectOnDb(project.id_projeto)) return new Project();
+            if (!projectOnDb(project.id_projeto)) return null;
 
             var tempProject = _context.Projects.SingleOrDefault(p => p.id_projeto.Equals(project.id_projeto));
 
@@ -78,7 +78,7 @@ namespace challengeProject.Services.Implementations
             
         }
 
-        private bool projectOnDb(int projectId)
+        public bool projectOnDb(int projectId)
         {
             return _context.Projects.Any(p => p.id_projeto.Equals(projectId));
         }

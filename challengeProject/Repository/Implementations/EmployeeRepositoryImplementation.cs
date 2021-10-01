@@ -6,12 +6,12 @@ using challengeProject.Model;
 using challengeProject.Model.Context;
 using System.Reflection;
 
-namespace challengeProject.Services.Implementations
+namespace challengeProject.Repository.Implementations
 {
-    public class EmployeeServiceImplementation : IEmployeeService
+    public class EmployeeRepositoryImplementation : IEmployeeRepository
     {
         private MySQLContext _context;
-        public EmployeeServiceImplementation(MySQLContext context)
+        public EmployeeRepositoryImplementation(MySQLContext context)
 
         {
             _context = context;
@@ -49,7 +49,7 @@ namespace challengeProject.Services.Implementations
 
         public Employee Update(Employee employee)
         {
-            if(!employeeOnDb(employee.id_empregado)) return new Employee();
+            if(!employeeOnDb(employee.id_empregado)) return null;
 
             var tempPerson = _context.Employees.SingleOrDefault(p => p.id_empregado.Equals(employee.id_empregado));
 
@@ -86,7 +86,7 @@ namespace challengeProject.Services.Implementations
         }
 
         //determines if employee is on database
-        private bool employeeOnDb(int employeeId)
+        public bool employeeOnDb(int employeeId)
         {
             return _context.Employees.Any(p => p.id_empregado.Equals(employeeId));
         }

@@ -1,0 +1,1 @@
+INSERT INTO `projetos` VALUES (48,'construir o colossus','1942-08-01 00:00:00','1945-08-01 00:00:00',42),(49,'Tentar dominar o mundo','2020-01-01 00:00:00','2022-01-01 00:00:00',43);

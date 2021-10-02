@@ -5,16 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using challengeProject.Model.Base;
+
 namespace challengeProject.Model
 {
     [Table("empregados")]
     
-    public class Employee
+    public class Employee : BaseEntity
     {
         //id do empregado
         [Column("id_empregado")]
         [Key]  
-        public int id_empregado { get; set; }
+        public new int Id { get; set; }
 
         //primero nome do empregado
         [Column("primeiro_nome")]

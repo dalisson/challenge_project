@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using challengeProject.Model;
+﻿using System.Collections.Generic;
+using challengeProject.Data.VO;
 
 namespace challengeProject.Business
 {
     public interface IEmployeeBusiness
     {
-        Employee Create(Employee employee);
+        EmployeeVO Create(EmployeeVO employee);
 
-        Employee FindByID(int employeeId);
+        EmployeeVO FindByID(int employeeId);
 
-        List<Project> FindProjectsByEmployee(int employeeId);
 
-        List<Employee> FindAll();
+        List<EmployeeVO> FindAll();
 
-        Employee Update(Employee employee);
+        EmployeeVO Update(EmployeeVO employee);
 
         void Delete(int employeeId);
     }

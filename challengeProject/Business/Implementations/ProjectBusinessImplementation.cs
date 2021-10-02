@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using challengeProject.Data.Converter.Implementation;
+using challengeProject.Data.VO;
 using challengeProject.Model;
 using challengeProject.Model.Context;
 using challengeProject.Repository;
@@ -10,37 +12,35 @@ namespace challengeProject.Business.Implementations
 {
     public class ProjectBusinessImplementation : IProjectBusiness
     {
-        private readonly IProjectRepository _repository;
-        public ProjectBusinessImplementation(IProjectRepository repository)
+        private readonly IRepository<Project> _repository;
+        private readonly ProjectConverter _converter;
+        public ProjectBusinessImplementation(IRepository<Project> repository)
 
         {
             _repository = repository;
+            _converter = new ProjectConverter();
+
         }
-        public Project Create(Project project)
+        public ProjectVO Create(ProjectVO project)
         {
             
-            return _repository.Create(project);
+            return _converter.Parse(_repository.Create(_converter.Parse(project)));
         }
 
-        public Project FindByID(int projectId)
+        public ProjectVO FindByID(int projectId)
         {
-            return _repository.FindByID(projectId);
+            return _converter.Parse(_repository.FindByID(projectId));
         }
 
-        public List<Employee> FindEmployeesByProject(int projetoId)
+        public List<ProjectVO> FindAll()
         {
-            throw new NotImplementedException();
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public List<Project> FindAll()
-        {
-            return _repository.FindAll();
-        }
-
-        public Project Update(Project project)
+        public ProjectVO Update(ProjectVO project)
         {
             
-            return _repository.Update(project);
+            return _converter.Parse(_repository.Update(_converter.Parse(project)));
         }
 
         public void Delete(int projectId)

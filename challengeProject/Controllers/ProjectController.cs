@@ -20,13 +20,13 @@ namespace challengeProject.Controllers
 
         private readonly ILogger<ProjectController> _logger;
         private IProjectBusiness _projectBusiness;
-        private IMembershipBusiness _membershipBusiness;
+        
 
-        public ProjectController(ILogger<ProjectController> logger, IProjectBusiness projectService, IMembershipBusiness membershipService)
+        public ProjectController(ILogger<ProjectController> logger, IProjectBusiness projectService)
         {
             _logger = logger;
             _projectBusiness = projectService;
-            _membershipBusiness = membershipService;
+            
         }
 
         
@@ -61,8 +61,6 @@ namespace challengeProject.Controllers
                 return BadRequest();
             }
             var result = _projectBusiness.Create(project);
-            Membership membership = new Membership { id_empregado = project.gerente, id_projeto = project.Id };
-            _membershipBusiness.Create(membership);
             return Ok(result);
         }
        

@@ -23,6 +23,7 @@ using challengeProject.Repository.Generic;
 using Microsoft.Net.Http.Headers;
 using challengeProject.Hypermedia.Filters;
 using challengeProject.Hypermedia.Enricher;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace challengeProject
 {
@@ -42,7 +43,7 @@ namespace challengeProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddControllers();
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
@@ -77,20 +78,32 @@ namespace challengeProject
             //versionamento de apis
             services.AddApiVersioning();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Projeto Empresa",
+                    Version = "v1",
+                    Description = "Projeto de desafio 2021",
+                    Contact = new OpenApiContact 
+                             {
+                                Name = "Dalisson Figueiredo",
+                                Url = new Uri("https://github.com/dalisson")
+                              }
+                });
+            });
+
             //injecao de dependencias
             //camada de negocios
             services.AddScoped<IEmployeeBusiness, EmployeeBusinessImplementation>();
             services.AddScoped<IProjectBusiness, ProjectBusinessImplementation>();
             services.AddScoped<IMembershipBusiness, MembershipBusinessImplementation>();
-            
+
             //camada do banco
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IMembershipRepository, MembershipRepositoryImplementation>();
+
             
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "challengeProject", Version = "v1" });
-            //});
         }
 
        
@@ -101,13 +114,17 @@ namespace challengeProject
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-               //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "challengeProject v1"));
             }
 
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Projeto empresa v1"));
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
 
             app.UseAuthorization();
 

@@ -37,10 +37,10 @@ namespace challengeProject.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        public EmployeeVO Update(EmployeeVO employee)
+        public EmployeeVO Update(EmployeeVO employee, int id)
         {
             
-            return _converter.Parse(_repository.Update(_converter.Parse(employee)));
+            return _converter.Parse(_repository.Update(_converter.Parse(employee), id));
 
 
         }

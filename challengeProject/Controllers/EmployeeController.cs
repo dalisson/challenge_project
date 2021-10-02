@@ -95,7 +95,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_employeeBusiness.Update(employee));
+            return Ok(_employeeBusiness.Update(employee, employee.Id));
         }
         [HttpDelete("{employeeId}")]
         public IActionResult Delete(int employeeId)

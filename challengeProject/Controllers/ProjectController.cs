@@ -73,7 +73,7 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_projectBusiness.Update(project));
+            return Ok(_projectBusiness.Update(project, project.Id));
         }
         [HttpDelete("{projectId}")]
         public IActionResult Delete(int projectId)

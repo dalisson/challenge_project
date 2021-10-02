@@ -13,7 +13,7 @@ namespace challengeProject.Model
     {
         [Key]
         [Column("id_projeto")]
-        public new int Id { get; set; }
+        public int Id { get; set; }
         [Column("nome")]
         public string nome { get; set; }
 

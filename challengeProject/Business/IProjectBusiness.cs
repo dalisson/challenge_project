@@ -15,7 +15,7 @@ namespace challengeProject.Business
 
         List<ProjectVO> FindAll();
 
-        ProjectVO Update(ProjectVO project);
+        ProjectVO Update(ProjectVO project, int id);
 
         void Delete(int projectId);
     }

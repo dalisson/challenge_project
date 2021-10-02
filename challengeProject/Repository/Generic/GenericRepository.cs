@@ -59,10 +59,11 @@ namespace challengeProject.Repository.Generic
 
      
 
-        public T Update(T item)
+        public T Update(T item, int id)
         {
-            if (recordOnDb(item.Id)) return null;
-            var tempRecord = dataset.SingleOrDefault(p => p.Id.Equals(item.Id));
+            
+            if (!recordOnDb(id)) return null;
+            var tempRecord = dataset.SingleOrDefault(p => p.Id.Equals(id));
 
             try
             {

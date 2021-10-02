@@ -15,7 +15,7 @@ namespace challengeProject.Repository
 
         List<T> FindAll();
 
-        T Update(T item);
+        T Update(T item, int id);
 
         void Delete(int id);
 

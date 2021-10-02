@@ -12,7 +12,7 @@ namespace challengeProject.Business
 
         List<EmployeeVO> FindAll();
 
-        EmployeeVO Update(EmployeeVO employee);
+        EmployeeVO Update(EmployeeVO employee, int id);
 
         void Delete(int employeeId);
     }

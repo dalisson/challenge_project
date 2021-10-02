@@ -37,10 +37,10 @@ namespace challengeProject.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        public ProjectVO Update(ProjectVO project)
+        public ProjectVO Update(ProjectVO project, int id)
         {
             
-            return _converter.Parse(_repository.Update(_converter.Parse(project)));
+            return _converter.Parse(_repository.Update(_converter.Parse(project), id));
         }
 
         public void Delete(int projectId)

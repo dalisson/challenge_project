@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using challengeProject.Hypermedia.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace challengeProject.Hypermedia.Filters
 {
-    public class HyperMediaFilter:ResultFilterAttribute
+    public class HyperMediaFilter : ResultFilterAttribute
     {
         private readonly HyperMediaFilterOptions _hyperMediaFilterOptions;
 
@@ -24,14 +25,13 @@ namespace challengeProject.Hypermedia.Filters
 
         private void TryEnrichResult(ResultExecutingContext context)
         {
-            if(context.Result is OkObjectResult objectResult)
+            if (context.Result is OkObjectResult objectResult)
             {
-                var enricher = _hyperMediaFilterOptions.ContentResposeEnricherList.FirstOrDefault(x => x.CanEnrich(context));
-                if(enricher != null)
-                {
-                    Task.FromResult(enricher.Enrich(context));
-                }
-            }
+                var enricher = _hyperMediaFilterOptions
+                    .ContentResponseEnricherList
+                    .FirstOrDefault(x => x.CanEnrich(context));
+                if (enricher != null) Task.FromResult(enricher.Enrich(context));
+            };
         }
     }
 }

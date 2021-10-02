@@ -8,7 +8,11 @@ namespace challengeProject.Hypermedia
 {
     public class HyperMediaLink
     {
-        public string Rel {
+        public string Rel { get; set; }
+        
+        private string href;
+        public string Href
+        {
             get
             {
                 object _lock = new object();
@@ -18,11 +22,12 @@ namespace challengeProject.Hypermedia
                     return sb.Replace("%2F", "/").ToString();
                 }
             }
-            set { href = value; }
+            set
+            {
+                href = value;
+            }
         }
-        public string Type { get; set;  }
+        public string Type { get; set; }
         public string Action { get; set; }
-        public string Href { get; set; }
-        public string href;
     }
 }

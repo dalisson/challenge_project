@@ -21,6 +21,8 @@ using Serilog;
 using Serilog.Core;
 using challengeProject.Repository.Generic;
 using Microsoft.Net.Http.Headers;
+using challengeProject.Hypermedia.Filters;
+using challengeProject.Hypermedia.Enricher;
 
 namespace challengeProject
 {
@@ -65,6 +67,13 @@ namespace challengeProject
 
             })
             .AddXmlSerializerFormatters();
+
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentResponseEnricherList.Add(new EmployeeEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new ProjectEnricher());
+
+            services.AddSingleton(filterOptions);
+
             //versionamento de apis
             services.AddApiVersioning();
 
@@ -105,6 +114,7 @@ namespace challengeProject
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
 

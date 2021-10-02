@@ -6,11 +6,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using challengeProject.Model.Base;
 using System.Text.Json.Serialization;
+using challengeProject.Hypermedia.Abstract;
+using challengeProject.Hypermedia;
 
 namespace challengeProject.Data.VO
 {
     
-    public class ProjectVO
+    public class ProjectVO : ISupportsHyperMedia
     {
         [JsonPropertyName("id_projeto")]
         public int Id { get; set; }
@@ -22,5 +24,7 @@ namespace challengeProject.Data.VO
         public DateTime data_termino { get; set; }
 
         public int gerente { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

@@ -7,11 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using challengeProject.Model.Base;
 using System.Text.Json.Serialization;
+using challengeProject.Hypermedia.Abstract;
+using challengeProject.Hypermedia;
 
 namespace challengeProject.Data.VO
 {
     
-    public class EmployeeVO
+    public class EmployeeVO : ISupportsHyperMedia
     {
         [JsonPropertyName("id_empregado")]
         public int Id{ get; set; }
@@ -23,5 +25,6 @@ namespace challengeProject.Data.VO
         public long telefone { get; set; }
 
         public string endereco { get; set; }
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

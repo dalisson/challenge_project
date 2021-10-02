@@ -2,13 +2,14 @@
 {
     public sealed class RelationType
     {
-        public const string DefaultGet = "applications/json";
-
-        public const string DefaultPost = "applications/json";
-
-        public const string DefaultPut = "applications/json";
-        
-        public const string DefaultPatch = "applications/json";
-
+        public const string self = "self";
+        public const string post = "post";
+        public const string put = "put";
+        public const string delete = "delete";
+        public const string patch = "patch";
+        public const string next = "next";
+        public const string previous = "previous";
+        public const string first = "first";
+        public const string last = "last";
     }
 }

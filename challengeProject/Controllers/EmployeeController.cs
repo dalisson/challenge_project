@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using challengeProject.Model;
 using challengeProject.Business;
 using challengeProject.Data.VO;
+using challengeProject.Hypermedia.Filters;
 
 namespace challengeProject.Controllers
 {
@@ -31,6 +32,7 @@ namespace challengeProject.Controllers
 
         //retornar todos os empregados
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_employeeBusiness.FindAll());
@@ -38,6 +40,7 @@ namespace challengeProject.Controllers
 
         //retorna empregado por id
         [HttpGet("{employeeId}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int employeeId)
         {
             var employee = _employeeBusiness.FindByID(employeeId);
@@ -50,6 +53,7 @@ namespace challengeProject.Controllers
 
         //persistir novo empregado na tabela
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] EmployeeVO employee)
         {
 
@@ -60,6 +64,7 @@ namespace challengeProject.Controllers
             return Ok(_employeeBusiness.Create(employee));
         }
         [HttpPost("addtoproject")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult AddToProject([FromBody] Membership membership)
         {
 
@@ -82,6 +87,7 @@ namespace challengeProject.Controllers
         }
         //atualizar empregado na tabela
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] EmployeeVO employee)
         {
 

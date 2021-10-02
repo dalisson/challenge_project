@@ -5,8 +5,6 @@ namespace challengeProject.Hypermedia.Filters
 {
     public class HyperMediaFilterOptions
     {
-
-        public List<IResponseEnricher> ContentResposeEnricherList { get; set; } = new List<IResponseEnricher>();
-
+        public List<IResponseEnricher> ContentResponseEnricherList { get; set; } = new List<IResponseEnricher>();
     }
 }

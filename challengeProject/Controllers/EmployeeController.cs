@@ -33,6 +33,10 @@ namespace challengeProject.Controllers
         //retornar todos os empregados
         [HttpGet]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(List<EmployeeVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get()
         {
             return Ok(_employeeBusiness.FindAll());
@@ -41,6 +45,11 @@ namespace challengeProject.Controllers
         //retorna empregado por id
         [HttpGet("{employeeId}")]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(EmployeeVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Get(int employeeId)
         {
             var employee = _employeeBusiness.FindByID(employeeId);
@@ -54,6 +63,10 @@ namespace challengeProject.Controllers
         //persistir novo empregado na tabela
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(EmployeeVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Post([FromBody] EmployeeVO employee)
         {
 
@@ -63,31 +76,13 @@ namespace challengeProject.Controllers
             }
             return Ok(_employeeBusiness.Create(employee));
         }
-        [HttpPost("addtoproject")]
-        [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult AddToProject([FromBody] Membership membership)
-        {
-
-            if (membership == null)
-            {
-                return BadRequest();
-            }
-            return Ok(_membershipBusiness.Create(membership));
-        }
-        [HttpDelete("removefromproject")]
-        public IActionResult RemoveFromProject([FromBody] Membership membership)
-        {
-
-            if (membership == null)
-            {
-                return BadRequest();
-            }
-            _membershipBusiness.Delete(membership);
-            return NoContent();
-        }
+        
         //atualizar empregado na tabela
         [HttpPut]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(EmployeeVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Put([FromBody] EmployeeVO employee)
         {
 
@@ -98,10 +93,44 @@ namespace challengeProject.Controllers
             return Ok(_employeeBusiness.Update(employee, employee.Id));
         }
         [HttpDelete("{employeeId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(int employeeId)
         {
 
             _employeeBusiness.Delete(employeeId);
+            return NoContent();
+        }
+
+        [HttpPost("addtoproject")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(Membership))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
+        public IActionResult AddToProject([FromBody] Membership membership)
+        {
+
+            if (membership == null)
+            {
+                return BadRequest();
+            }
+            return Ok(_membershipBusiness.Create(membership));
+        }
+
+        [HttpDelete("removefromproject")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult RemoveFromProject([FromBody] Membership membership)
+        {
+
+            if (membership == null)
+            {
+                return BadRequest();
+            }
+            _membershipBusiness.Delete(membership);
             return NoContent();
         }
     }

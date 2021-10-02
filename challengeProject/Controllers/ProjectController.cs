@@ -32,6 +32,11 @@ namespace challengeProject.Controllers
         
         [HttpGet]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(List<ProjectVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Get()
         {
             return Ok(_projectBusiness.FindAll());
@@ -40,6 +45,11 @@ namespace challengeProject.Controllers
        
         [HttpGet("{projectId}")]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(ProjectVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Get(int projectId)
         {
             var project = _projectBusiness.FindByID(projectId);
@@ -53,6 +63,10 @@ namespace challengeProject.Controllers
         
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(ProjectVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Post([FromBody] ProjectVO project)
         {
 
@@ -66,6 +80,10 @@ namespace challengeProject.Controllers
        
         [HttpPut]
         [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType((200), Type = typeof(ProjectVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+
         public IActionResult Put([FromBody] ProjectVO project)
         {
 
@@ -76,6 +94,9 @@ namespace challengeProject.Controllers
             return Ok(_projectBusiness.Update(project, project.Id));
         }
         [HttpDelete("{projectId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(int projectId)
         {
 

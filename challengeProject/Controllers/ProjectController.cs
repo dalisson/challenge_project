@@ -20,15 +20,16 @@ namespace challengeProject.Controllers
 
         private readonly ILogger<ProjectController> _logger;
         private IProjectBusiness _projectBusiness;
+        private IMembershipBusiness _membershipBusiness;
 
-
-        public ProjectController(ILogger<ProjectController> logger, IProjectBusiness projectService)
+        public ProjectController(ILogger<ProjectController> logger, IProjectBusiness projectService, IMembershipBusiness membershipService)
         {
             _logger = logger;
             _projectBusiness = projectService;
+            _membershipBusiness = membershipService;
         }
 
-        //retornar todos os empregados
+        
         [HttpGet]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
@@ -36,7 +37,7 @@ namespace challengeProject.Controllers
             return Ok(_projectBusiness.FindAll());
         }
 
-        //retorna empregado por id
+       
         [HttpGet("{projectId}")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int projectId)
@@ -49,7 +50,7 @@ namespace challengeProject.Controllers
             return Ok(project);
         }
 
-        //persistir novo empregado na tabela
+        
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] ProjectVO project)
@@ -59,9 +60,12 @@ namespace challengeProject.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_projectBusiness.Create(project));
+            var result = _projectBusiness.Create(project);
+            Membership membership = new Membership { id_empregado = project.gerente, id_projeto = project.Id };
+            _membershipBusiness.Create(membership);
+            return Ok(result);
         }
-        //atualizar empregado na tabela
+       
         [HttpPut]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] ProjectVO project)

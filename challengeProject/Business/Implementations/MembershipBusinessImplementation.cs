@@ -23,7 +23,13 @@ namespace challengeProject.Business.Implementations
         }
         public void Delete(Membership membership)
         {
-            _repository.Delete(membership);
+            //employee must no longer be a manager before he can be untangled from project
+            if (!_repository.isManager(membership))
+            {
+                _repository.Delete(membership);
+            }
+            
         }
+        
     }
 }

@@ -12,5 +12,7 @@ namespace challengeProject.Repository
     {
         Membership Create(Membership membership);
         void Delete(Membership membership);
+
+        public bool isManager(Membership membership);
     }
 }

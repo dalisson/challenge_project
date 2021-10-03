@@ -6,365 +6,442 @@
 	},
 	"item": [
 		{
-			"name": "listar empregados",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/employee/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "listar empregado por id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/employee/v1/42",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1",
-						"42"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Criar empregado",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_empregado\" : 54,\r\n    \"primeiro_nome\" : \"Super\",\r\n    \"ultimo_nome\" : \"Luigi\",\r\n    \"telefone\" : 1234567898,\r\n    \"endereco\" : \"mario@nintendo.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/employee/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "atualizar empregado",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_empregado\" : 54,\r\n    \"primeiro_nome\" : \"jane\",\r\n    \"ultimo_nome\" : \"Patrick\",\r\n    \"endereco\" :\"jane@cbi.us\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/employee/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete employee",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/employee/44",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"44"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "listar projetos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/project/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"project",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "listar projeto por Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/project/v1/48",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"project",
-						"v1",
-						"48"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Criar projeto",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_projeto\" : 53,\r\n    \"nome\" : \"Construir computadores\",\r\n    \"data_criacao\" : \"2020-01-01\",\r\n    \"data_termino\" : \"2022-01-01\",\r\n    \"gerente\" : 42\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/project/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"project",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "atualizar project",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_projeto\" : 53,\r\n    \"nome\" : \"Construir computadores\",\r\n    \"data_criacao\" : \"2020-01-01\",\r\n    \"data_termino\" : \"2022-01-01\",\r\n    \"gerente\" : 43\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/project/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"project",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete project",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/project/v1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"project",
-						"v1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "adicionar membro a projeto",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_empregado\" : 48,\r\n    \"id_projeto\" : 52\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/employee/v1/addtoproject/",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1",
-						"addtoproject",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "remover empregado de projeto",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_empregado\" : 48,\r\n    \"id_projeto\" : 52\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/employee/v1/removefromproject/",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"employee",
-						"v1",
-						"removefromproject",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "signup",
-			"event": [
+			"name": "Autencicacao",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"if(responseCode.code >= 200 && responseCode.code <=299){\r",
-							"    var jsonData = JSON.parse(responseBody);\r",
-							"    postman.setEnvironmentVariable('authToken', jsonData.accessToken)\r",
-							"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken)\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"password\" : \"admin458\",\r\n    \"userName\" : \"admin458\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseCode.code >= 200 && responseCode.code <=299){\r",
+									"    var jsonData = JSON.parse(responseBody);\r",
+									"    postman.setEnvironmentVariable('authToken', jsonData.accessToken)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/Auth/v1/signup",
-					"host": [
-						"{{url}}"
 					],
-					"path": [
-						"Auth",
-						"v1",
-						"signup"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"admin1234\",\r\n    \"userName\" : \"admin1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/v1/signin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"v1",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseCode.code >= 200 && responseCode.code <=299){\r",
+									"    var jsonData = JSON.parse(responseBody);\r",
+									"    postman.setEnvironmentVariable('authToken', jsonData.accessToken)\r",
+									"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"admin458\",\r\n    \"userName\" : \"admin458\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/v1/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"v1",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseCode.code >= 200 && responseCode.code <=299){\r",
+									"    var jsonData = JSON.parse(responseBody);\r",
+									"    postman.setEnvironmentVariable('authToken', jsonData.accessToken)\r",
+									"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxZjMxY2U5ZjE0ZTI0ZDZjYjk3OTQwODZiNDc2ZTdiYiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4xMjM0IiwiZXhwIjoxNjMzMjgyMzgxLCJpc3MiOiJDaGFsbGVuZ2VJc3N1ZXIiLCJhdWQiOiJDaGFsbGVuZ2VBdWRpZW5jZSJ9.ngMvwKGCV1mVDJEiT76lqTPWV-qdovz9vWFYdCP6sCk\",\r\n    \"refreshToken\": \"FGwYD/oQDE39SwLc0M7pk3F7WnPJtTX/W9e8aiJ0OHQ=\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/v1/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"v1",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "revogar o token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Auth/v1/revoke",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"v1",
+								"revoke"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "signin",
-			"event": [
+			"name": "Empregados",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"if(responseCode.code >= 200 && responseCode.code <=299){\r",
-							"    var jsonData = JSON.parse(responseBody);\r",
-							"    postman.setEnvironmentVariable('authToken', jsonData.accessToken)\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"password\" : \"admin1234\",\r\n    \"userName\" : \"admin1234\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "listar empregados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employee/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/Auth/v1/signin",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"Auth",
-						"v1",
-						"signin"
-					]
+				{
+					"name": "listar empregado por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employee/v1/42",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar empregado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_empregado\" : 54,\r\n    \"primeiro_nome\" : \"Super\",\r\n    \"ultimo_nome\" : \"Luigi\",\r\n    \"telefone\" : 1234567898,\r\n    \"endereco\" : \"mario@nintendo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employee/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar empregado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_empregado\" : 54,\r\n    \"primeiro_nome\" : \"jane\",\r\n    \"ultimo_nome\" : \"Patrick\",\r\n    \"endereco\" :\"jane@cbi.us\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employee/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar empregado",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/employee/44",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remover empregado de projeto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_empregado\" : 48,\r\n    \"id_projeto\" : 52\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employee/v1/removefromproject/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1",
+								"removefromproject",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adicionar embregado a projeto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_empregado\" : 48,\r\n    \"id_projeto\" : 52\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/employee/v1/addtoproject/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								"v1",
+								"addtoproject",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Projetos",
+			"item": [
+				{
+					"name": "listar projetos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/project/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"project",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar projeto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/project/v1/48",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar projeto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_projeto\" : 53,\r\n    \"nome\" : \"Construir computadores\",\r\n    \"data_criacao\" : \"2020-01-01\",\r\n    \"data_termino\" : \"2022-01-01\",\r\n    \"gerente\" : 42\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/project/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"project",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_projeto\" : 53,\r\n    \"nome\" : \"Construir computadores\",\r\n    \"data_criacao\" : \"2020-01-01\",\r\n    \"data_termino\" : \"2022-01-01\",\r\n    \"gerente\" : 43\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/project/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"project",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/project/v1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"project",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {

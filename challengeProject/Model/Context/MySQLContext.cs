@@ -26,5 +26,7 @@ namespace challengeProject.Model.Context
         public DbSet<Project> Projects { get; set; }
 
         public DbSet<Membership> Memberships { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }
